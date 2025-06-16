@@ -1,15 +1,13 @@
-<?php 
+<?php
 session_start();
-
-// Very basic admin login check (replace with your real auth system)
 if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
     header('Location: admin_login.php');
     exit;
 }
 
 require 'db.php';
+$message = null;
 
-// Handle deletion request
 if (isset($_POST['delete_id'])) {
     $delete_id = (int)$_POST['delete_id'];
 
@@ -23,7 +21,6 @@ if (isset($_POST['delete_id'])) {
         $stmt2->execute([$delete_id]);
 
         $pdo->commit();
-
         $message = "Confession ID $delete_id deleted successfully.";
     } catch (Exception $e) {
         $pdo->rollBack();
@@ -31,7 +28,6 @@ if (isset($_POST['delete_id'])) {
     }
 }
 
-// Fetch all confessions with reactions
 $stmt = $pdo->prepare("
     SELECT c.id, c.message, c.mood, c.created_at,
            COALESCE(r.love, 0) AS love,
@@ -43,23 +39,31 @@ $stmt = $pdo->prepare("
     ORDER BY c.created_at DESC
 ");
 $stmt->execute();
-$confessions = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$confessions = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Admin Panel - Confessions</title>
-<link rel="stylesheet" href="admin_panel.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Panel - Confessions</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #fff; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+    th { background: #eee; }
+    .logout-link { float: right; text-decoration: none; color: red; }
+    .message { color: green; font-weight: bold; }
+    .delete-btn { background: red; color: white; border: none; padding: 5px 10px; cursor: pointer; }
+  </style>
 </head>
 <body>
+
 <h1>Admin Panel - Confessions</h1>
+<p><a href="admin_logout.php" class="logout-link">Logout (<?= htmlspecialchars($_SESSION['admin_username']) ?>)</a></p>
 
-<p><a href="admin_logout.php" class="logout-link">Logout</a></p>
-
-<?php if (!empty($message)) : ?>
+<?php if ($message): ?>
   <div class="message"><?= htmlspecialchars($message) ?></div>
 <?php endif; ?>
 
@@ -75,7 +79,7 @@ $confessions = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($confessions as $conf) : ?>
+    <?php foreach ($confessions as $conf): ?>
       <tr>
         <td><?= (int)$conf['id'] ?></td>
         <td><?= htmlspecialchars($conf['message']) ?></td>
