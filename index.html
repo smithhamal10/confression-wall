@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anonymous Confession Wall</title>
+  <meta name="description" content="Confess anonymously, read what others feel, and interact freely.">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- AOS animation library -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header class="header" data-aos="fade-down">
+      <h1>🕵️ Anonymous Confession Wall</h1>
+      <p class="subtitle">Be honest. Be anonymous. Be heard.</p>
+    </header>
+
+    <!-- DAILY QUOTE -->
+    <section class="daily-quote" data-aos="zoom-in">
+      <blockquote>
+        "The truth will set you free, but first it will piss you off." – Gloria Steinem
+      </blockquote>
+    </section>
+
+    <!-- CONFESSION FORM -->
+    <section class="form-section" data-aos="fade-up">
+      <form id="confessionForm">
+        <label for="message">💬 Your Confession:</label>
+        <textarea id="message" maxlength="1000" placeholder="Write what's on your mind..." required></textarea>
+        <div class="form-footer">
+          <small id="charCount">0 / 1000</small>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- MOOD SELECTOR -->
+    <section class="mood-section" data-aos="fade-up">
+      <h2>🎭 What's your current mood?</h2>
+      <div class="mood-options">
+        <button>😢</button>
+        <button>😊</button>
+        <button>😡</button>
+        <button>🥺</button>
+        <button>😎</button>
+        <button>💤</button>
+      </div>
+    </section>
+
+    <!-- COMMUNITY GUIDELINES -->
+    <section class="rules-section" data-aos="fade-right">
+      <h2>📜 Community Guidelines</h2>
+      <ul>
+        <li>✅ No bullying or hate speech.</li>
+        <li>🚫 No real names or personal data.</li>
+        <li>🤐 All posts are anonymous and private.</li>
+      </ul>
+    </section>
+
+    <!-- FILTER TOOLS -->
+    <section class="tools-section" data-aos="fade-left">
+      <h2>🔍 Browse Confessions</h2>
+      <input type="text" id="searchInput" placeholder="Search confessions..." />
+      <select id="sortSelect">
+        <option value="latest">Latest</option>
+        <option value="popular">Most Reacted</option>
+        <option value="random">Random</option>
+      </select>
+    </section>
+
+    <!-- CONFESSION WALL -->
+    <section class="wall-section" data-aos="fade-up">
+      <h2>🧱 Confession Wall</h2>
+      <div id="confessions" class="confession-list">
+        <!-- JS injects confessions here -->
+      </div>
+    </section>
+
+    <!-- REACTIONS -->
+    <section class="reaction-guide" data-aos="fade-up">
+      <h2>React with Emojis</h2>
+      <div class="reaction-legend">
+        <span>❤️ Love</span>
+        <span>😂 Funny</span>
+        <span>😢 Sad</span>
+        <span>🔥 Bold</span>
+      </div>
+    </section>
+
+    <!-- TRENDING -->
+    <section class="trending-section" data-aos="fade-up">
+      <h2>🔥 Trending Confessions</h2>
+      <div id="trendingConfessions">
+        <!-- JS shows top reacted here -->
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonial-section" data-aos="fade-up">
+      <h2>🧑‍🤝‍🧑 What Users Say</h2>
+      <div class="testimonials">
+        <blockquote>"This wall saved my sanity. Thanks for existing!" – Anonymous</blockquote>
+        <blockquote>"It's the only place I can speak my truth without fear." – Unknown</blockquote>
+      </div>
+    </section>
+
+    <!-- REPORT -->
+    <section class="report-section" data-aos="fade-up">
+      <h2>🚨 Report Harmful Content</h2>
+      <p>If a post breaks the rules, <a href="#">click here to report</a>.</p>
+    </section>
+
+    <!-- SUBSCRIBE -->
+    <section class="newsletter-section" data-aos="fade-up">
+      <h2>📬 Subscribe for Updates</h2>
+      <form id="newsletterForm">
+        <input type="email" placeholder="Your email (optional)" />
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" data-aos="fade-up">
+      <p>&copy; 2025 Anonymous Wall | <a href="#">Privacy</a> | <a href="#">Terms</a></p>
+    </footer>
+
+  </div>
+
+  <!-- JS + AOS -->
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+/* ========== BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #111;
+  color: #f0f0f0;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ========== HEADER ========== */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  color: #ff4081;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #aaa;
+  margin-top: 8px;
+}
+
+/* ========== FORM SECTION ========== */
+.form-section {
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section textarea {
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 120px;
+  margin-bottom: 10px;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#charCount {
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #e91e63;
+}
+
+/* ========== SECTIONS (TIPS, FILTER, WALL, ETC) ========== */
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  margin-bottom: 15px;
+  color: #ff4081;
+}
+
+ul {
+  list-style: none;
+}
+
+.rules-section li {
+  padding: 8px 0;
+  color: #ccc;
+}
+
+.tools-section input,
+.tools-section select,
+.newsletter-section input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #2a2a2a;
+  color: white;
+  font-size: 1rem;
+}
+
+/* ========== CONFESSION WALL ========== */
+.confession-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.confession {
+  background-color: #1f1f1f;
+  padding: 15px;
+  border-left: 4px solid #ff4081;
+  border-radius: 8px;
+}
+
+.confession p {
+  margin-bottom: 8px;
+}
+
+.confession small {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+/* ========== REACTIONS ========== */
+.reaction-guide p {
+  margin-bottom: 10px;
+}
+
+.reaction-legend span {
+  display: inline-block;
+  margin-right: 15px;
+  background: #2a2a2a;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #eee;
+}
+
+/* ========== TRENDING SECTION ========== */
+#trendingConfessions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ========== REPORT SECTION ========== */
+.report-section a {
+  color: #ff4081;
+  text-decoration: underline;
+}
+
+/* ========== NEWSLETTER ========== */
+.newsletter-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.newsletter-section input {
+  margin-bottom: 10px;
+}
+
+.newsletter-section button {
+  width: fit-content;
+  align-self: flex-end;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+  padding-top: 30px;
+  border-top: 1px solid #2a2a2a;
+}
+
+.footer a {
+  color: #ff4081;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  section h2 {
+    font-size: 1.3rem;
+  }
+
+  button {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .form-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .reaction-legend span {
+    display: block;
+    margin-bottom: 6px;
+  }
+}
